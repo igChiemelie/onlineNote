@@ -1,0 +1,55 @@
+<?php
+session_start();
+include('connection.php');
+
+$userId = $_SESSION['userId'];
+$sql = "DELETE FROM notes WHERE note = ''";
+$result = mysqli_query($link, $sql);
+if(!$result){
+    echo "<div class='error'>Warning an error occured!</div>";
+    exit;
+}
+
+$sql = "SELECT * FROM notes WHERE userId = '$userId' ORDER BY time DESC";
+if($result = mysqli_query($link, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            # code...
+            $noteId = $row['id'];
+            $note = $row['note'];
+            $time = $row['time'];
+            $time = date("F d, Y h:i:s A", $time);
+
+            echo "<div class='note row'>
+                    <div class='delete col s2' >
+                        <button class='btn  del red btn-medium waves-effect waves-light' >Delete</button>
+                    </div>
+
+
+                    <div class='noteheader' id=$noteId>
+                        <p>$noteId</p>
+                        <div class='text'>$note</div>
+                        <div class='textTime'>$time</div>
+                    </div>
+                 </div>";
+
+                //  echo '<script>
+                //  $(".noteheader").on("click", function() {
+                //     console.log("hdd");
+                //  });
+                //  </script>';           
+        }
+    }else{
+        echo "<div class='error' style='margin-top:50px'>No notes yet!</div>";
+    }
+}else{
+    echo "<div class='error'>Warning an error occured ff!</div>";
+    echo '<div class="error">'.mysqli_error($link).'</div>';
+
+    exit;
+
+}
+
+
+
+?>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="fonts/material-icons.css">
+    <style>
+        .b {
+            background: url("img/image.png");
+        }
+    </style>
+</head>
+
+<form action="" method="post" id="signupForm">
+    <div>
+        <input type="text" name="username" id="username" placeholder="Username" data-length="30">
+        <input type="password" name="" id="">
+        <label for="username">Username:-</label>
+        <input type="hidden" name="key" value="$key">
+        <input type="hidden" name="key" value="$userId">
+        <input type="submit" value="" class="btn btn-medium">
+    </div>
+    <button type="button" style="color: white;"></button>
+    <button type="reset"></button>
+</form>
+
+<td>
+
+</td>
+<td>
+    <?php 
+    //  echo $email;
+      ?>
+</td>
+
+<body>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/onlineNote.js"></script>
+    <script>
+        document.getElementById(passwordReset).onsubmit(function() {
+            console.log('hdsfuusfdi');
+        })
+    </script>
+</body>
+
+</html>
+
+session_start(); // remove all session variables session_unset(); unset($_SESSION["loggedIn"]); // destroy the session session_destroy(); header('location: ../index.php');
+
+<input type=hidden name=key value=$key>
+<input type=hidden name=userId value=$userId>
+<div style="padding-top: 10px;">
+    <label for='password'>Enter your new Password:-</label>
+    <input type='password' name='password' id='password' placeholder='Enter Password'>
+
+</div>
+<div>
+    <label for='password2'>Re-Enter Password:-</label>
+    <input type='password' name='password2' id='password2' placeholder='Re-Enter Password'>
+</div>
+
+<input type='submit' value='resetpassword' name='resetpassword' class='btn btn-medium waves-effect waves-light green'>
